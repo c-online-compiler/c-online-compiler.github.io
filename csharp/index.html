@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow" />
+    <title>Онлайн компилятор С# на русском - разрабатывайте .NET приложения на C#</title>
+    <meta name="description" content="Удобный онлайн компилятор С# с поддержкой .NET Core. Создавайте, тестируйте и отлаживайте приложения C# прямо в браузере без установки Visual Studio.">
+    
+    <meta property="og:title" content="Онлайн компилятор С# на русском - разрабатывайте .NET приложения на C#">
+    <meta property="og:description" content="Удобный онлайн компилятор С# с поддержкой .NET Core. Создавайте, тестируйте и отлаживайте приложения C# прямо в браузере без установки Visual Studio.">
+    <meta property="og:url" content="https://c-online-compiler.github.io/csharp/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://c-online-compiler.github.io/logo.png">
+    
+    <link rel="canonical" href="https://c-online-compiler.github.io/csharp/">
+    <link rel="alternate" hreflang="en" href="https://c-online-compiler.github.io/en/csharp/">
+    <link rel="alternate" hreflang="fr" href="https://c-online-compiler.github.io/fr/csharp/">
+    <link rel="alternate" hreflang="de" href="https://c-online-compiler.github.io/de/csharp/">
+    <link rel="alternate" hreflang="tr" href="https://c-online-compiler.github.io/tr/csharp/">
+    <link rel="alternate" hreflang="kr" href="https://c-online-compiler.github.io/kr/csharp/">
+    <link rel="alternate" hreflang="x-default" href="https://c-online-compiler.github.io/csharp/">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "C# Онлайн компилятор",
+      "url": "https://c-online-compiler.github.io/csharp/",
+      "description": "Удобный онлайн компилятор С# с поддержкой .NET Core. Создавайте, тестируйте и отлаживайте приложения C# прямо в браузере без установки Visual Studio.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+    <style>
+        .code-font {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #512da8 0%, #7e57c2 50%, #9575cd 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="bg-gray-900 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/csharp/" class="flex items-center">
+                        <svg class="h-8 w-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold">C# компилятор</span>
+                    </a>
+                </div>
+                
+                <!-- Основное меню -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-300 hover:text-purple-400">C</a>
+                    <a href="/cpp/" class="text-gray-300 hover:text-purple-400">C++</a>
+                    <a href="/csharp/" class="text-white hover:text-purple-400 font-medium">C#</a>
+                    <a href="#help" class="text-gray-300 hover:text-purple-400">Учебные материалы</a>
+                    <a href="#features" class="text-gray-300 hover:text-purple-400">Возможности</a>
+                </nav>
+                <!-- Мобильное меню -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Мобильное меню (скрыто по умолчанию) -->
+            <div id="mobile-menu" class="md:hidden hidden mt-3 pb-3">
+                <a href="/" class="block py-2 text-gray-300 hover:text-purple-400">C</a>
+                <a href="/cpp/" class="block py-2 text-gray-300 hover:text-purple-400">C++</a>
+                <a href="/csharp/" class="block py-2 text-white font-medium">C#</a>
+                <a href="#help" class="text-gray-300 hover:text-purple-400">Учебные материалы</a>
+                <a href="#features" class="text-gray-300 hover:text-purple-400">Возможности</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="compiler" class="gradient-bg py-16 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-8">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Онлайн компилятор С#</h1>
+                <p class="text-lg md:text-xl text-gray-200">Разрабатывайте, компилируйте и тестируйте приложения на C# прямо в браузере — без установки Visual Studio</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="bg-gray-800 text-gray-200 px-4 py-2 flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-purple-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
+                        </svg>
+                        <span class="font-medium">Program.cs</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <span class="text-xs bg-purple-600 text-white px-2 py-1 rounded">.NET 6, 7, 8</span>
+                    </div>
+                </div>
+                <iframe frameBorder="0" height="500px" width="100%" src="https://onecompiler.com/embed/csharp"></iframe>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Для кого подходит наш C# компилятор</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-purple-50 rounded-lg border-t-4 border-purple-500">
+                    <p class="text-xl font-semibold mb-3">Разработчики .NET</p>
+                    <p class="text-gray-700">Тестируйте фрагменты кода и прототипы без настройки локальной среды разработки. Идеальный инструмент для экспериментов с новыми возможностями языка C#.</p>
+                </div>
+                
+                <div class="p-6 bg-purple-50 rounded-lg border-t-4 border-purple-500">
+                    <p class="text-xl font-semibold mb-3">Студенты</p>
+                    <p class="text-gray-700">Изучайте C# и .NET без установки громоздких IDE. Выполняйте учебные задания, экспериментируйте с языком и получайте мгновенный результат.</p>
+                </div>
+                
+                <div class="p-6 bg-purple-50 rounded-lg border-t-4 border-purple-500">
+                    <p class="text-xl font-semibold mb-3">Преподаватели</p>
+                    <p class="text-gray-700">Проводите интерактивные занятия и демонстрируйте концепции программирования на C# без установки дополнительного ПО. Легко делитесь рабочими примерами со студентами.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Возможности и функциональность -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 id="features" class="text-3xl font-bold text-center mb-4">Возможности нашего C# компилятора</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Современные инструменты для эффективной разработки на C# и платформе .NET прямо в вашем браузере</p>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Поддержка последних версий .NET</h3>
+                                <p class="text-gray-600">Разрабатывайте с использованием возможностей новейших версий .NET, включая .NET 6, 7 и 8.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Интеллектуальная подсветка синтаксиса</h3>
+                                <p class="text-gray-600">Автоматическое форматирование кода и подсветка синтаксиса C# для более удобной и эффективной разработки.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">NuGet пакеты</h3>
+                                <p class="text-gray-600">Доступ к популярным NuGet пакетам и стандартным библиотекам .NET для расширения функциональности вашего кода.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Диагностика ошибок в реальном времени</h3>
+                                <p class="text-gray-600">Мгновенное обнаружение и подробное описание ошибок компиляции для быстрого устранения проблем.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">LINQ и асинхронное программирование</h3>
+                                <p class="text-gray-600">Полная поддержка языковых возможностей C#, включая LINQ запросы, лямбда-выражения и async/await.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Консольный ввод/вывод</h3>
+                                <p class="text-gray-600">Полноценная поддержка консольного ввода/вывода для интерактивного взаимодействия с вашими приложениями.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Преимущества сервиса -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Почему разработчики выбирают наш онлайн компилятор С#</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-purple-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Высокая производительность</h3>
+                    <p class="text-gray-600">Современные серверы обеспечивают быструю компиляцию и выполнение ваших C# программ без задержек.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-purple-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Автосохранение и история</h3>
+                    <p class="text-gray-600">Автоматическое сохранение ваших проектов и доступ к истории изменений для удобной разработки.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-purple-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Защищенная среда выполнения</h3>
+                    <p class="text-gray-600">Изолированное окружение для безопасного выполнения кода и защиты от вредоносных программ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Учебные материалы -->
+    <section id="help" class="py-16 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-8">Учебные материалы по C#</h2>
+          <p class="text-center text-gray-600 mb-10">Изучайте язык программирования С# с помощью проверенных ресурсов и авторитетных источников.</p>
+          <div>
+            <div class="grid md:grid-cols-2 gap-4">
+              <a href="https://learn.microsoft.com/ru-ru/dotnet/csharp/" class="block bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition-colors" target="_blank" rel="nofollow noopener">
+                <p class="font-semibold mb-2">Microsoft Docs</p>
+                <p class="text-gray-600">Официальная документация по C# и платформе .NET от Microsoft.</p>
+              </a>
+            
+              <a href="https://dotnet.microsoft.com/en-us/learn/" class="block bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition-colors" target="_blank" rel="nofollow noopener">
+                <p class="font-semibold mb-2">.NET Learn</p>
+                <p class="text-gray-600">Интерактивные учебные материалы и курсы по C# и .NET.</p>
+              </a>
+              
+              <a href="https://github.com/dotnet/csharplang" class="block bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition-colors" target="_blank" rel="nofollow noopener">
+                <p class="font-semibold mb-2">C# Language Design</p>
+                <p class="text-gray-600">Репозиторий разработки языка C# с документацией по спецификациям и новым возможностям.</p>
+              </a>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Часто задаваемые вопросы -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Часто задаваемые вопросы</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Нужно ли мне устанавливать что-либо для использования компилятора C#?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Нет, наш онлайн компилятор С# работает полностью в браузере и не требует установки каких-либо программ или плагинов. Вам нужен только современный веб-браузер с доступом в интернет.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Какие версии C# поддерживаются?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Наш компилятор поддерживает версии C# от 8.0 до 12.0, включая все последние языковые возможности и синтаксические конструкции.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Как я могу вводить данные в мою программу?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Наш компилятор C# поддерживает ввод данных через стандартный поток ввода (STDIN). Вы можете вводить данные для вашей программы в специальном текстовом поле на вкладке I/O. Это позволяет тестировать программы, которые ожидают ввод от пользователя.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Есть ли ограничения на размер кода?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Да, существуют некоторые ограничения для предотвращения бесконечных циклов и чрезмерного использования ресурсов, но 95% типичных учебных и практических задач выполняются без проблем.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Сохраняется ли мой код после закрытия браузера?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Код временно сохраняется в локальном хранилище браузера, но может быть потерян при очистке данных или после определенного периода времени. Для постоянного сохранения кода рекомендуется вручную копировать его или использовать функцию экспорта проекта.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Могу ли я использовать библиотеки .NET в онлайн-компиляторе?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Да, компилятор поддерживает основные библиотеки .NET, включая System, System.Collections.Generic, System.Linq и многие другие. Вы можете использовать директивы using для подключения необходимых пространств имён.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Призыв к действию -->
+    <section class="gradient-bg py-16 px-4 text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Начните программировать на C# прямо сейчас</h2>
+            <p class="text-xl text-gray-200 mb-8">Без установки, без регистрации — просто откройте компилятор и пишите код</p>
+            <a href="#compiler" class="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">Запустить код в С# компиляторе</a>
+        </div>
+    </section>
+    
+    <!-- Подвал -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">С компилятор онлайн</h3>
+                    <p class="text-sm">Бесплатный онлайн-компилятор для языка программирования С. Пишите, компилируйте и запускайте код прямо в браузере.</p>
+                </div>
+                
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Компиляторы</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="hover:text-blue-400">C</a></li>
+                        <li><a href="/cpp/" class="hover:text-blue-400">C++</a></li>
+                        <li><a href="/csharp/" class="hover:text-blue-400">C#</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">О нас</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/about/" class="hover:text-blue-400">О сервисе</a></li>
+                        <li><a href="/contact/" class="hover:text-blue-400">Контакты</a></li>
+                        <li><a href="/privacy/" class="hover:text-blue-400">Политика конфиденциальности</a></li>
+                        <li><a href="/terms/" class="hover:text-blue-400">Условия использования</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm">© 2025 c-online-compiler.github.io. Все права защищены.</p>
+                </div>
+                
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm hover:text-blue-400">English</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Français</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Deutsch</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Türkçe</a>
+                        <a href="#" class="text-sm hover:text-blue-400">한국어</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('hidden');
+                const icon = button.querySelector('svg');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        document.querySelector('iframe').closest('section').id = 'compiler';
+    </script>
+</body>
+</html>

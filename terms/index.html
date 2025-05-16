@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow" />
+    <title>Условия использования сайта c-online-compiler.github.io</title>
+    <meta name="description" content="Условия использования онлайн компилятора C, C++, C# на c-online-compiler.github.io">
+    
+    <meta property="og:title" content="Условия использования сайта c-online-compiler.github.io">
+    <meta property="og:description" content="Условия использования онлайн компилятора C, C++, C# на c-online-compiler.github.io">
+    <meta property="og:url" content="https://c-online-compiler.github.io/terms/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://c-online-compiler.github.io/logo.png">
+	<link rel="canonical" href="https://c-online-compiler.github.io/terms/">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <style>
+        .code-font {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+        .team-img {
+            filter: grayscale(20%);
+            transition: all 0.3s ease;
+        }
+        .team-card:hover .team-img {
+            filter: grayscale(0%);
+        }
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #3B82F6;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="bg-gray-900 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center">
+                        <svg class="h-8 w-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold">С компилятор</span>
+                    </a>
+                </div>
+                
+                <!-- Основное меню -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="https://c-online-compiler.github.io/" class="text-gray-300 hover:text-blue-400">C</a>
+                    <a href="https://c-online-compiler.github.io/cpp/" class="text-gray-300 hover:text-blue-400">C++</a>
+                    <a href="https://c-online-compiler.github.io/csharp/" class="text-gray-300 hover:text-blue-400">C#</a>
+                    <a href="https://c-online-compiler.github.io/#features" class="text-gray-300 hover:text-blue-400">Возможности</a>
+                    <a href="https://c-online-compiler.github.io/#examples" class="text-gray-300 hover:text-blue-400">Примеры</a>
+                </nav>
+                <!-- Мобильное меню -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Мобильное меню (скрыто по умолчанию) -->
+            <div id="mobile-menu" class="md:hidden hidden mt-3 pb-3">
+                <a href="https://c-online-compiler.github.io/" class="block py-2 text-gray-300 hover:text-blue-400">C</a>
+                <a href="https://c-online-compiler.github.io/cpp/" class="block py-2 text-gray-300 hover:text-blue-400">C++</a>
+                <a href="https://c-online-compiler.github.io/csharp/" class="block py-2 text-gray-300 hover:text-blue-400">C#</a>
+                <a href="https://c-online-compiler.github.io/#features" class="block py-2 text-gray-300 hover:text-blue-400">Возможности</a>
+                <a href="https://c-online-compiler.github.io/#examples" class="block py-2 text-gray-300 hover:text-blue-400">Примеры</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="gradient-bg py-12 px-4 text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Условия использования сервиса</h1>
+            <p class="text-xl">Правила и условия работы с онлайн компилятором C, C++ и C#</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="max-w-4xl mx-auto">
+                <div class="relative pl-10 border-l-2 border-blue-500 space-y-12">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">1. Общие положения</h2>
+                        <p class="text-gray-600">
+                            1.1. Сервис c-online-compiler.github.io (далее — "Сервис") предоставляет пользователям возможность <a href="https://c-online-compiler.github.io/csharp/">компилировать и выполнять код на С#</a>, C, C++ в режиме онлайн.
+                        </p>
+                        <p class="text-gray-600 mt-2">
+                            1.2. Используя Сервис, вы соглашаетесь с настоящими Условиями использования.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">2. Ответственность за пользовательский код</h2>
+                        <p class="text-gray-600">
+                            2.1. Сервис не сохраняет, не хранит и не обрабатывает пользовательский код после завершения сеанса компиляции и выполнения.
+                        </p>
+                        <p class="text-gray-600 mt-2">
+                            2.2. Вся ответственность за содержание, функциональность и последствия выполнения пользовательского кода лежит исключительно на пользователе.
+                        </p>
+                        <p class="text-gray-600 mt-2">
+                            2.3. Сервис не гарантирует безопасность пользовательского кода и не проверяет его на наличие вредоносных или опасных функций.
+                        </p>
+                        <p class="text-gray-600 mt-2">
+                            2.4. Пользователь обязуется не использовать Сервис для компиляции и выполнения кода, который может нанести вред компьютерным системам или нарушить законодательство.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">3. Ограничения использования</h2>
+                        <p class="text-gray-600">
+                            3.1. Запрещается использовать Сервис для:
+                            <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                                <li>Распространения вредоносного кода</li>
+                                <li>Нарушения авторских прав</li>
+                                <li>Попыток взлома или несанкционированного доступа</li>
+                                <li>Любой незаконной деятельности</li>
+                            </ul>
+                        </p>
+                        <p class="text-gray-600 mt-2">
+                            3.2. Сервис оставляет за собой право без предупреждения блокировать доступ пользователям, нарушающим эти условия.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">4. Гарантии и ограничения ответственности</h2>
+                        <p class="text-gray-600">
+                            4.1. Сервис предоставляется "как есть" без каких-либо гарантий.
+                        </p>
+                        <p class="text-gray-600 mt-2">
+                            4.2. Мы не несем ответственности за:
+                            <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                                <li>Последствия выполнения пользовательского кода</li>
+                                <li>Потерю данных или кода пользователя</li>
+                                <li>Некорректную работу компилятора для конкретного кода</li>
+                                <li>Доступность Сервиса в любое время</li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">5. Изменения условий</h2>
+                        <p class="text-gray-600">
+                            5.1. Мы оставляем за собой право изменять настоящие Условия в любое время.
+                        </p>
+                        <p class="text-gray-600 mt-2">
+                            5.2. Продолжение использования Сервиса после внесения изменений означает ваше согласие с новыми условиями.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">6. Контактная информация</h2>
+                        <p class="text-gray-600">
+                            По всем вопросам, связанным с условиями использования, обращайтесь через форму обратной связи на странице Контакты.
+                        </p>
+                    </div>
+
+                    <div class="pt-4">
+                        <p class="text-sm text-gray-500">
+                            Дата последнего обновления: 16 мая 2025 г.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">С компилятор онлайн</h3>
+                    <p class="text-sm">Бесплатный онлайн-компилятор для языка программирования С. Пишите, компилируйте и запускайте код прямо в браузере.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Компиляторы</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://c-online-compiler.github.io/" class="hover:text-blue-400">C</a></li>
+                        <li><a href="https://c-online-compiler.github.io/cpp/" class="hover:text-blue-400">C++</a></li>
+                        <li><a href="https://c-online-compiler.github.io/csharp/" class="hover:text-blue-400">C#</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">О нас</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/about/" class="hover:text-blue-400">О сервисе</a></li>
+                        <li><a href="/contact/" class="hover:text-blue-400">Контакты</a></li>
+                        <li><a href="/privacy/" class="hover:text-blue-400">Политика конфиденциальности</a></li>
+                        <li><a href="/terms/" class="hover:text-blue-400">Условия использования</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm">© 2025 c-online-compiler.github.io. Все права защищены.</p>
+                </div>
+                
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm hover:text-blue-400">English</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Français</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Deutsch</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Türkçe</a>
+                        <a href="#" class="text-sm hover:text-blue-400">한국어</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

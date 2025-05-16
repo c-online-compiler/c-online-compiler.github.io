@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow" />
+    <title>Онлайн компилятор Си на русском - бесплатно компилируйте и отлаживайте на C/С</title>
+    <meta name="description" content="Бесплатный онлайн компилятор Си с удобным редактором кода. Пишите, редактируйте и запускайте программы на C прямо в браузере без установки. Поддержка стандартов С11/17/20.">
+    
+    <meta property="og:title" content="Онлайн компилятор Си на русском - бесплатно компилируйте и отлаживайте на C/С">
+    <meta property="og:description" content="Бесплатный онлайн компилятор Си с удобным редактором кода. Пишите, редактируйте и запускайте программы на C прямо в браузере без установки. Поддержка стандартов С11/17/20.">
+    <meta property="og:url" content="https://c-online-compiler.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://c-online-compiler.github.io/logo.png">
+    
+    <link rel="canonical" href="https://c-online-compiler.github.io/">
+    <link rel="alternate" hreflang="en" href="https://c-online-compiler.github.io/en/">
+    <link rel="alternate" hreflang="fr" href="https://c-online-compiler.github.io/fr/">
+    <link rel="alternate" hreflang="de" href="https://c-online-compiler.github.io/de/">
+    <link rel="alternate" hreflang="tr" href="https://c-online-compiler.github.io/tr/">
+    <link rel="alternate" hreflang="kr" href="https://c-online-compiler.github.io/kr/">
+    <link rel="alternate" hreflang="x-default" href="https://c-online-compiler.github.io/">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "С Онлайн компилятор",
+      "url": "https://c-online-compiler.github.io/",
+      "description": "Бесплатный онлайн компилятор Си с удобным редактором кода. Пишите, редактируйте и запускайте программы на C прямо в браузере без установки. Поддержка стандартов С11/17/20.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+    <style>
+        .code-font {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="bg-gray-900 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center">
+                        <svg class="h-8 w-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold">С компилятор</span>
+                    </a>
+                </div>
+                
+                <!-- Основное меню -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="text-white hover:text-blue-400 font-medium">C</a>
+                    <a href="/cpp/" class="text-gray-300 hover:text-blue-400">C++</a>
+                    <a href="/csharp/" class="text-gray-300 hover:text-blue-400">C#</a>
+                    <a href="#features" class="text-gray-300 hover:text-blue-400">Возможности</a>
+                    <a href="#examples" class="text-gray-300 hover:text-blue-400">Примеры</a>
+                </nav>
+                <!-- Мобильное меню -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Мобильное меню (скрыто по умолчанию) -->
+            <div id="mobile-menu" class="md:hidden hidden mt-3 pb-3">
+                <a href="/" class="block py-2 text-white font-medium">C</a>
+                <a href="/cpp/" class="block py-2 text-gray-300 hover:text-blue-400">C++</a>
+                <a href="/csharp/" class="block py-2 text-gray-300 hover:text-blue-400">C#</a>
+                <a href="#examples" class="text-gray-300 hover:text-purple-400">Примеры</a>
+                <a href="#features" class="text-gray-300 hover:text-purple-400">Возможности</a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Главная секция с компилятором -->
+    <section class="gradient-bg py-2 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-8">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Онлайн Компилятор С</h1>
+                <p class="text-lg md:text-xl text-gray-200">Пишите, компилируйте и запускайте код C прямо в браузере — бесплатно и без установки</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="bg-gray-800 text-gray-200 px-4 py-2 flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
+                        </svg>
+                        <span class="font-medium">main.c</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <span class="text-xs bg-blue-600 text-white px-2 py-1 rounded">C11,17,20,23</span>
+                    </div>
+                </div>
+                <iframe frameBorder="0" height="500px" width="100%" src="https://onecompiler.com/embed/c"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Преимущества сервиса -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Почему выбирают наш онлайн компилятор C</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Мгновенная компиляция</h3>
+                    <p class="text-gray-600">Мощные серверы обеспечивают быструю компиляцию вашего кода. Результаты выполнения доступны за считанные секунды.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Удобный редактор</h3>
+                    <p class="text-gray-600">Современный редактор с подсветкой синтаксиса C, автоматическими отступами и другими функциями для удобства работы с кодом.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Безопасность</h3>
+                    <p class="text-gray-600">Ваш код выполняется в изолированной среде, что гарантирует безопасность данных и защиту от вредоносного кода.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Функциональность и возможности -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 id="features" class="text-3xl font-bold text-center mb-4">Возможности нашего Си компилятора</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Наш онлайн компилятор предоставляет все необходимые инструменты для эффективной работы с кодом на C</p>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Поддержка стандартов C11/17/20</h3>
+                                <p class="text-gray-600">Работайте с новейшими функциями языка C и используйте современный синтаксис.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Подсветка синтаксиса в реальном времени</h3>
+                                <p class="text-gray-600">Мгновенная подсветка кода делает чтение и отладку проще и нагляднее.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Ввод данных во время выполнения</h3>
+                                <p class="text-gray-600">Поддержка стандартного ввода для тестирования программ. Вводите данные для программы через поле STDIN на вкладке I/O во время выполнения.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Подробные сообщения об ошибках</h3>
+                                <p class="text-gray-600">Получайте информативные сообщения о проблемах в коде для быстрого исправления ошибок.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Стандартные библиотеки C</h3>
+                                <p class="text-gray-600">Полная поддержка стандартной библиотеки языка C для работы с файлами, памятью, математическими и другими функциями.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Работа без регистрации</h3>
+                                <p class="text-gray-600">Начните программировать мгновенно, без необходимости создания аккаунта или установки дополнительных программ.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Секция для кого -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Для кого подходит наш C компилятор</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-blue-50 rounded-lg border-t-4 border-blue-500">
+                    <p class="text-xl font-semibold mb-3">Студенты</p>
+                    <p class="text-gray-700">Идеальный инструмент для выполнения учебных заданий по программированию. Нет необходимости устанавливать среду разработки на свой компьютер — начинайте программировать сразу.</p>
+                </div>
+                
+                <div class="p-6 bg-blue-50 rounded-lg border-t-4 border-blue-500">
+                    <p class="text-xl font-semibold mb-3">Преподаватели</p>
+                    <p class="text-gray-700">Демонстрируйте примеры кода во время занятий без настройки локальной среды разработки. Быстро проверяйте решения учеников онлайн.</p>
+                </div>
+                
+                <div class="p-6 bg-blue-50 rounded-lg border-t-4 border-blue-500">
+                    <p class="text-xl font-semibold mb-3">Разработчики</p>
+                    <p class="text-gray-700">Быстро тестируйте фрагменты кода и алгоритмы без отвлечения на настройку среды. Идеально подходит для экспериментов и отладки небольших программ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Часто задаваемые вопросы -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Часто задаваемые вопросы</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Нужно ли мне устанавливать что-либо для использования компилятора?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Нет, наш онлайн компилятор С работает полностью в браузере и не требует установки каких-либо программ или плагинов. Вам нужен только современный веб-браузер с доступом в интернет.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Какие стандарты C поддерживаются?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Наш компилятор поддерживает стандарты C11, 14, C17 и C20, 23.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Как я могу вводить данные в мою программу?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Наш Си компилятор поддерживает ввод данных через STDIN. Вы можете вводить данные для вашей программы в специальном текстовом поле на вкладке I/O. Это позволяет тестировать программы, которые ожидают ввод от пользователя.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Есть ли ограничения на размер кода?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Да, существуют некоторые ограничения для предотвращения бесконечных циклов, но 95% тестов кода выполняется.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Сохраняется ли мой код после закрытия браузера?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Код временно сохраняется в локальном хранилище браузера, но может быть потерян при очистке данных или после определенного периода времени. Для постоянного сохранения кода рекомендуется вручную копировать его или использовать внешние хранилища.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Примеры кода -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 id="examples" class="text-3xl font-bold text-center mb-8">Примеры программ на C</h2>
+            <p class="text-center text-gray-600 mb-10">Изучайте язык на практических примерах и используйте их в своих проектах</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="bg-gray-800 text-white px-4 py-2 flex items-center">
+                        <svg class="h-4 w-4 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        <span class="code-font text-sm">hello_world.c</span>
+                    </div>
+                    <div class="p-4">
+                        <pre class="code-font bg-gray-50 p-3 rounded text-sm text-gray-800 overflow-x-auto">
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}
+
+                        </pre>
+                        <div class="mt-4">
+                            <p class="font-medium">Привет, мир!</p>
+                            <p class="text-sm text-gray-600 mt-1">Классический пример программы для вывода приветствия на экран.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="bg-gray-800 text-white px-4 py-2 flex items-center">
+                        <svg class="h-4 w-4 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        <span class="code-font text-sm">calculator.c</span>
+                    </div>
+                    <div class="p-4">
+                        <pre class="code-font bg-gray-50 p-3 rounded text-sm text-gray-800 overflow-x-auto">
+#include &lt;stdio.h&gt;
+
+int main() {
+    double a, b;
+    char op;
+
+    printf(&quot;Введите выражение: &quot;);
+    scanf(&quot;%lf %c %lf&quot;, &amp;a, &amp;op, &amp;b);
+
+    switch(op) {
+        case '+':
+            printf(&quot;%lf\n&quot;, a + b);
+            break;
+        case '-':
+            printf(&quot;%lf\n&quot;, a - b);
+            break;
+        case '*':
+            printf(&quot;%lf\n&quot;, a * b);
+            break;
+        case '/':
+            if (b != 0)
+                printf(&quot;%lf\n&quot;, a / b);
+            else
+                printf(&quot;Ошибка: деление на ноль\n&quot;);
+            break;
+        default:
+            printf(&quot;Ошибка: неизвестная операция\n&quot;);
+    }
+
+    return 0;
+}
+                        </pre>
+                        <div class="mt-4">
+                            <p class="font-medium">Простой калькулятор</p>
+                            <p class="text-sm text-gray-600 mt-1">Программа для выполнения базовых арифметических операций.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Учебные материалы -->
+    <section class="py-16 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-8">Учебные материалы по C</h2>
+          <p class="text-center text-gray-600 mb-10">Изучайте язык программирования C с помощью проверенных ресурсов и авторитетных источников.</p>
+          <div>
+            <div class="grid md:grid-cols-2 gap-4">
+              <a href="https://ru.cppreference.com/w/c" class="block bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition-colors" target="_blank" rel="nofollow noopener">
+                <p class="font-semibold mb-2">C Reference</p>
+                <p class="text-gray-600">Документация по стандартной библиотеке языка C, доступная на cppreference.com.</p>
+              </a>
+            
+              <a href="https://www.open-std.org/jtc1/sc22/wg14/" class="block bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition-colors" target="_blank" rel="nofollow noopener">
+                <p class="font-semibold mb-2">ISO C</p>
+                <p class="text-gray-600">Официальный сайт комитета по стандартизации языка C (WG14), включая спецификации и документы.</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Призыв к действию -->
+    <section class="gradient-bg py-16 px-4 text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Начните программировать на C прямо сейчас</h2>
+            <p class="text-xl text-gray-200 mb-8">Без установки, без регистрации — просто откройте компилятор и пишите код</p>
+            <a href="#compiler" class="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">Открыть компилятор</a>
+        </div>
+    </section>
+    
+    <!-- Подвал -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">С компилятор онлайн</h3>
+                    <p class="text-sm">Бесплатный онлайн-компилятор для языка программирования С. Пишите, компилируйте и запускайте код прямо в браузере.</p>
+                </div>
+                
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Компиляторы</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="hover:text-blue-400">C</a></li>
+                        <li><a href="/cpp/" class="hover:text-blue-400">C++</a></li>
+                        <li><a href="/csharp/" class="hover:text-blue-400">C#</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">О нас</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/about/" class="hover:text-blue-400">О сервисе</a></li>
+                        <li><a href="/contact/" class="hover:text-blue-400">Контакты</a></li>
+                        <li><a href="/privacy/" class="hover:text-blue-400">Политика конфиденциальности</a></li>
+                        <li><a href="/terms/" class="hover:text-blue-400">Условия использования</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm">© 2025 c-online-compiler.github.io. Все права защищены.</p>
+                </div>
+                
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm hover:text-blue-400">English</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Français</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Deutsch</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Türkçe</a>
+                        <a href="#" class="text-sm hover:text-blue-400">한국어</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('hidden');
+                const icon = button.querySelector('svg');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        document.querySelector('iframe').closest('section').id = 'compiler';
+    </script>
+</body>
+</html>

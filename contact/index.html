@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow" />
+    <title>Контакты - c-online-compiler.github.io</title>
+    <meta name="description" content="Свяжитесь с командой онлайн компилятора языка Си. Задайте вопросы, сообщите о проблемах или предложите идеи для улучшения сервиса.">
+    
+    <meta property="og:title" content="Контакты - Онлайн компилятор языка C">
+    <meta property="og:description" content="Свяжитесь с командой онлайн компилятора языка Си. Задайте вопросы, сообщите о проблемах или предложите идеи для улучшения сервиса.">
+    <meta property="og:url" content="https://c-online-compiler.github.io/contact/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://c-online-compiler.github.io/logo.png">
+	<link rel="canonical" href="https://c-online-compiler.github.io/contact/">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Контакты c-online-compiler.github.io",
+      "url": "https://c-online-compiler.github.io/contact/",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "c-online-compiler.github.io",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "info@c-online-compiler.github.io"
+        }
+      }
+    }
+    </script>
+    <style>
+        .code-font {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+        .contact-form-container {
+            min-height: 400px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="bg-gray-900 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center">
+                        <svg class="h-8 w-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold">С компилятор</span>
+                    </a>
+                </div>
+                
+                <!-- Основное меню -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="https://c-online-compiler.github.io/" class="text-gray-300 hover:text-blue-400">C</a>
+                    <a href="https://c-online-compiler.github.io/cpp/" class="text-gray-300 hover:text-blue-400">C++</a>
+                    <a href="https://c-online-compiler.github.io/csharp/" class="text-gray-300 hover:text-blue-400">C#</a>
+                    <a href="https://c-online-compiler.github.io/#features" class="text-gray-300 hover:text-blue-400">Возможности</a>
+                    <a href="https://c-online-compiler.github.io/#examples" class="text-gray-300 hover:text-blue-400">Примеры</a>
+                </nav>
+                <!-- Мобильное меню -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Мобильное меню (скрыто по умолчанию) -->
+            <div id="mobile-menu" class="md:hidden hidden mt-3 pb-3">
+                <a href="https://c-online-compiler.github.io/" class="block py-2 text-gray-300 hover:text-blue-400">C</a>
+                <a href="https://c-online-compiler.github.io/cpp/" class="block py-2 text-gray-300 hover:text-blue-400">C++</a>
+                <a href="https://c-online-compiler.github.io/csharp/" class="block py-2 text-gray-300 hover:text-blue-400">C#</a>
+                <a href="https://c-online-compiler.github.io/#features" class="block py-2 text-gray-300 hover:text-blue-400">Возможности</a>
+                <a href="https://c-online-compiler.github.io/#examples" class="block py-2 text-gray-300 hover:text-blue-400">Примеры</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="gradient-bg py-12 px-4 text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Контакты</h1>
+            <p class="text-xl text-gray-200">Свяжитесь с нами для получения информации, сообщения о проблемах или предложения сотрудничества</p>
+        </div>
+    </section>
+
+    <!-- Информация о контактах -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Левая колонка - контактная информация -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6">Наши контакты</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mr-4 text-blue-500">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium">Email:</p>
+                                <a href="mailto:info@c-online-compiler.github.io" class="text-blue-600 hover:underline">info@c-online-compiler.github.io</a>
+                                <p class="text-sm text-gray-600 mt-1">Обычно отвечаем в течение 24-48 часов</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mr-4 text-blue-500">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium">Техническая поддержка:</p>
+                                <a href="mailto:support@c-online-compiler.github.io" class="text-blue-600 hover:underline">info@c-online-compiler.github.io</a>
+                                <p class="text-sm text-gray-600 mt-1">Для решения технических проблем и вопросов</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mr-4 text-blue-500">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium">Предложения и партнерство:</p>
+                                <a href="mailto:partners@c-online-compiler.github.io" class="text-blue-600 hover:underline">info@c-online-compiler.github.io</a>
+                                <p class="text-sm text-gray-600 mt-1">Для образовательных учреждений и потенциальных партнеров</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        
+                            <a href="#" class="text-gray-600 hover:text-blue-500">
+                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-6">Отправить сообщение</h2>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md contact-form-container">
+                        <script src="https://forms.yandex.ru/_static/embed.js"></script><iframe src="https://forms.yandex.ru/u/68270ac490fa7bb5503656dc/?iframe=1" frameborder="0" name="ya-form-68270ac490fa7bb5503656dc" width="650"></iframe>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ секция -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Часто задаваемые вопросы</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center">
+                        <span class="font-medium text-lg">Как быстро вы отвечаете на запросы?</span>
+                        <svg class="h-5 w-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 border-t border-gray-200">
+                        <p class="text-gray-700">Мы стараемся отвечать на все запросы в течение 24-48 рабочих часов. Для технических вопросов и проблем с функциональностью время ответа может быть короче.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center">
+                        <span class="font-medium text-lg">Как сообщить об ошибке в компиляторе?</span>
+                        <svg class="h-5 w-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 border-t border-gray-200">
+                        <p class="text-gray-700">Для сообщения об ошибках используйте электронную почту info@c-online-compiler.github.io. Пожалуйста, включите в сообщение следующую информацию: код, который вызывает ошибку, ожидаемое поведение, фактическое поведение, браузер и операционную систему.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center">
+                        <span class="font-medium text-lg">Можно ли использовать компилятор для коммерческих проектов?</span>
+                        <svg class="h-5 w-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 border-t border-gray-200">
+                        <p class="text-gray-700">Да, наш онлайн компилятор можно свободно использовать для любых целей, включая коммерческие проекты. Однако мы рекомендуем для продакшн-кода использовать локальную среду разработки для обеспечения безопасности вашего интеллектуальной собственности.</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Призыв к действию -->
+    <section class="py-16 px-4 gradient-bg text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Попробуйте наш компилятор прямо сейчас</h2>
+            <p class="text-xl text-gray-200 mb-8">Без регистрации, без ограничений - просто напишите код и нажмите "Выполнить"</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://c-online-compiler.github.io/cpp/" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold text-lg transition-colors">Запустить код С++ онлайн</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">С компилятор онлайн</h3>
+                    <p class="text-sm">Бесплатный онлайн-компилятор для языка программирования С. Пишите, компилируйте и запускайте код прямо в браузере.</p>
+                </div>
+                
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Компиляторы</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://c-online-compiler.github.io/" class="hover:text-blue-400">C</a></li>
+                        <li><a href="https://c-online-compiler.github.io/cpp/" class="hover:text-blue-400">C++</a></li>
+                        <li><a href="https://c-online-compiler.github.io/csharp/" class="hover:text-blue-400">C#</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">О нас</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/about/" class="hover:text-blue-400">О сервисе</a></li>
+                        <li><a href="/contact/" class="hover:text-blue-400">Контакты</a></li>
+                        <li><a href="/privacy/" class="hover:text-blue-400">Политика конфиденциальности</a></li>
+                        <li><a href="/terms/" class="hover:text-blue-400">Условия использования</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm">© 2025 c-online-compiler.github.io. Все права защищены.</p>
+                </div>
+                
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm hover:text-blue-400">English</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Français</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Deutsch</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Türkçe</a>
+                        <a href="#" class="text-sm hover:text-blue-400">한국어</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('hidden');
+                const icon = button.querySelector('svg');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        document.querySelector('iframe').closest('section').id = 'compiler';
+    </script>
+</body>
+</html>
