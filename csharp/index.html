@@ -47,6 +47,9 @@
             background: linear-gradient(135deg, #512da8 0%, #7e57c2 50%, #9575cd 100%);
         }
     </style>
+<!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>    
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
     <header class="bg-gray-900 text-white shadow-md">
@@ -95,7 +98,17 @@
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Онлайн компилятор С#</h1>
                 <p class="text-lg md:text-xl text-gray-200">Разрабатывайте, компилируйте и тестируйте приложения на Си шарпе прямо в браузере — без установки Visual Studio</p>
             </div>
-            
+            <script>
+                if (window.innerWidth > 768) {
+                    window.yaContextCb = window.yaContextCb || [];
+                    window.yaContextCb.push(() => {
+                        Ya.Context.AdvManager.render({
+                            blockId: "R-A-15538507-1",
+                            renderTo: "yandex_rtb_R-A-15538507-1"
+                        });
+                    });
+                }
+            </script>
             <div class="bg-white rounded-lg shadow-xl overflow-hidden">
                 <div class="bg-gray-800 text-gray-200 px-4 py-2 flex justify-between items-center">
                     <div class="flex items-center">
@@ -112,8 +125,16 @@
             </div>
         </div>
     </section>
-    
-
+        <!-- Yandex.RTB R-A-15538507-1-1 -->
+	<div id="yandex_rtb_R-A-15538507-1-1"></div>
+	<script>
+	window.yaContextCb.push(() => {
+	    Ya.Context.AdvManager.render({
+	        "blockId": "R-A-15538507-1",
+	        "renderTo": "yandex_rtb_R-A-15538507-1-1"
+	    })
+	})
+	</script>
     <section class="py-16 px-4 bg-white">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-3xl font-bold text-center mb-12">Для кого подходит наш C# компилятор</h2>
@@ -474,5 +495,15 @@
     </script>
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(101924126, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/101924126" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+<!-- Yandex.RTB R-A-15538507-2 -->
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-15538507-2",
+        "type": "fullscreen",
+        "platform": "desktop"
+    })
+})
+</script>
 </body>
 </html>
