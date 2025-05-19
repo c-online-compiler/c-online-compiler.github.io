@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Online C++ Compiler - Compile and Debug C++ Code for Free</title>
+    <meta name="description" content="Free online C++ compiler with a powerful code editor. Write, edit, and run C++ programs directly in your browser without installation. Supports C++11, C++14, C++17, and C++20 standards.">
+    
+    <meta property="og:title" content="Online C++ Compiler - Compile and Debug C++ Code for Free">
+    <meta property="og:description" content="Free online C++ compiler with a powerful code editor. Write, edit, and run C++ programs directly in your browser without installation. Supports C++11, C++14, C++17, and C++20 standards.">
+    <meta property="og:url" content="https://c-online-compiler.github.io/en/cpp/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://c-online-compiler.github.io/logo.png">
+    
+    <link rel="canonical" href="https://c-online-compiler.github.io/en/cpp/">
+    <link rel="alternate" hreflang="ru" href="https://c-online-compiler.github.io/cpp/">
+    <link rel="alternate" hreflang="fr" href="https://c-online-compiler.github.io/fr/cpp/">
+    <link rel="alternate" hreflang="de" href="https://c-online-compiler.github.io/de/cpp/">
+    <link rel="alternate" hreflang="tr" href="https://c-online-compiler.github.io/tr/cpp/">
+    <link rel="alternate" hreflang="kr" href="https://c-online-compiler.github.io/kr/cpp/">
+    <link rel="alternate" hreflang="x-default" href="https://c-online-compiler.github.io/en/cpp/">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online C++ Compiler",
+      "url": "https://c-online-compiler.github.io/en/cpp/",
+      "description": "Free online C++ compiler with a powerful code editor. Write, edit, and run C++ programs directly in your browser without installation. Supports C++11, C++14, C++17, and C++20 standards.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+    <style>
+        .code-font {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+    </style>
+<!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+<script>
+    if (window.innerWidth > 768) {
+        window.yaContextCb = window.yaContextCb || [];
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-15538507-1",
+                renderTo: "yandex_rtb_R-A-15538507-1"
+            });
+        });
+    }
+</script>	
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="bg-gray-900 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/en/cpp/" class="flex items-center">
+                        <svg class="h-8 w-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold">C++ Compiler</span>
+                    </a>
+                </div>
+                
+                <!-- Main navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/en/" class="text-gray-300 hover:text-blue-400">C</a>
+                    <a href="/en/cpp/" class="text-white hover:text-blue-400 font-medium">C++</a>
+                    <a href="/en/csharp/" class="text-gray-300 hover:text-blue-400">C#</a>
+                    <a href="#features" class="text-gray-300 hover:text-blue-400">Features</a>
+                    <a href="#examples" class="text-gray-300 hover:text-blue-400">Examples</a>
+                </nav>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu (hidden by default) -->
+            <div id="mobile-menu" class="md:hidden hidden mt-3 pb-3">
+                <a href="/en/" class="block py-2 text-gray-300 hover:text-blue-400">C</a>
+                <a href="/en/cpp/" class="block py-2 text-white font-medium">C++</a>
+                <a href="/en/csharp/" class="block py-2 text-gray-300 hover:text-blue-400">C#</a>
+                <a href="#features" class="block py-2 text-gray-300 hover:text-blue-400">Features</a>
+                <a href="#examples" class="block py-2 text-gray-300 hover:text-blue-400">Examples</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main compiler section -->
+    <section class="gradient-bg py-2 px-4">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center mb-8">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Online C++ Compiler</h1>
+                <p class="text-lg md:text-xl text-gray-200">Write, compile and run C++ code directly in your browser — free with no installation required</p>
+            </div>
+	<div id="yandex_rtb_R-A-15538507-1"></div>
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="bg-gray-800 text-gray-200 px-4 py-2 flex justify-between items-center">
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
+                        </svg>
+                        <span class="font-medium">main.cpp</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <span class="text-xs bg-blue-600 text-white px-2 py-1 rounded">Latest version</span>
+                    </div>
+                </div>
+                <iframe frameborder="0" height="550px" width="100%" src="https://onecompiler.com/embed/cpp?hideLanguageSelection=true"></iframe>
+            </div>
+        </div>
+    </section>
+        <!-- Yandex.RTB R-A-15538507-1-1 -->
+	<div id="yandex_rtb_R-A-15538507-1-1"></div>
+	<script>
+	window.yaContextCb.push(() => {
+	    Ya.Context.AdvManager.render({
+	        "blockId": "R-A-15538507-1",
+	        "renderTo": "yandex_rtb_R-A-15538507-1-1"
+	    })
+	})
+	</script>
+    <!-- Service benefits -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Our Online C++ Compiler</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Instant Compilation</h3>
+                    <p class="text-gray-600">Powerful servers ensure fast code compilation. Get program execution results in seconds.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Smart Code Editor</h3>
+                    <p class="text-gray-600">Modern editor with C++ syntax highlighting, auto-indentation, and intelligent code completion for comfortable coding.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Secure Environment</h3>
+                    <p class="text-gray-600">Your code runs in an isolated sandbox, ensuring data security and protection against malicious programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 id="features" class="text-3xl font-bold text-center mb-4">Our C++ Compiler Features</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Our online compiler provides all necessary tools for effective work with modern C++</p>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">C++11/14/17/20 Standards Support</h3>
+                                <p class="text-gray-600">Use all modern C++ features including lambda expressions, auto, smart pointers, templates, and more.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Real-time Syntax Highlighting</h3>
+                                <p class="text-gray-600">Instant code highlighting makes reading and debugging easier, and programming more efficient.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Interactive Input</h3>
+                                <p class="text-gray-600">Standard input/output support for program testing. Enter test data through a dedicated I/O tab during execution.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Detailed Error Messages</h3>
+                                <p class="text-gray-600">Get clear and detailed feedback about code issues for quick error correction.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Complete STL Library</h3>
+                                <p class="text-gray-600">Access to C++ Standard Template Library with vectors, strings, algorithms, and other useful containers and functions.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Instant Access, No Registration</h3>
+                                <p class="text-gray-600">Start coding in C++ immediately without account creation or compiler/IDE installation.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Target audience -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Who Can Benefit From Our C++ Compiler</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-blue-50 rounded-lg border-t-4 border-blue-500">
+                    <p class="text-xl font-semibold mb-3">Students</p>
+                    <p class="text-gray-700">Perfect solution for completing C++ lab assignments. No complex IDE setup required — start coding immediately.</p>
+                </div>
+                
+                <div class="p-6 bg-blue-50 rounded-lg border-t-4 border-blue-500">
+                    <p class="text-xl font-semibold mb-3">Educators</p>
+                    <p class="text-gray-700">Convenient tool for demonstrating code examples during lectures. Quickly check student assignments online without local setup.</p>
+                </div>
+                
+                <div class="p-6 bg-blue-50 rounded-lg border-t-4 border-blue-500">
+                    <p class="text-xl font-semibold mb-3">Developers</p>
+                    <p class="text-gray-700">Quickly test algorithms, prototype classes, and debug code snippets without launching a full IDE. Ideal for experimenting with new C++ features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Do I need to install any software to use this compiler?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">No, our online C++ compiler works entirely in your browser. You don't need to install any additional software or plugins. Just use a modern web browser with internet access.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Which C++ standards are supported?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Our compiler supports all major C++ standards: C++11, C++14, C++17, and C++20. This allows you to use both classic language features and modern capabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">How to input data during program execution?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Our C++ compiler supports data input through standard input stream (cin). The compiler panel has a dedicated I/O tab where you can enter test data for your program before execution.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Are there any code size or execution time limits?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Yes, there are some technical limitations on code size and execution time to prevent abuse. However, these limits are sufficient for most educational and testing purposes.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium">Is my code saved after closing the browser?</h3>
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-gray-600">Code is temporarily saved in your browser's local storage but may be lost when clearing cache or after some time. For reliable saving, we recommend copying your code to a text file on your computer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- C++ code examples -->
+<section class="py-16 px-4 bg-gray-50">
+    <div class="container mx-auto max-w-6xl">
+        <h2 id="examples" class="text-3xl font-bold text-center mb-8">C++ Code Examples</h2>
+        <p class="text-center text-gray-600 mb-10">Learn C++ with practical examples you can use in your projects</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="bg-gray-800 text-white px-4 py-2 flex items-center">
+                    <svg class="h-4 w-4 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                    <span class="code-font text-sm">hello_world.cpp</span>
+                </div>
+                <div class="p-4">
+                    <pre class="code-font bg-gray-50 p-3 rounded text-sm text-gray-800 overflow-x-auto">
+#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, world!" &lt;&lt; std::endl;
+    return 0;
+}
+                    </pre>
+                    <div class="mt-4">
+                        <p class="font-medium">Hello World</p>
+                        <p class="text-sm text-gray-600 mt-1">Basic C++ program demonstrating stream output.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="bg-gray-800 text-white px-4 py-2 flex items-center">
+                    <svg class="h-4 w-4 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                    <span class="code-font text-sm">calculator.cpp</span>
+                </div>
+                <div class="p-4">
+                    <pre class="code-font bg-gray-50 p-3 rounded text-sm text-gray-800 overflow-x-auto">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    double a, b;
+    char op;
+
+    cout &lt;&lt; "Enter expression: ";
+    cin &gt;&gt; a &gt;&gt; op &gt;&gt; b;
+
+    switch(op) {
+        case '+':
+            cout &lt;&lt; a + b &lt;&lt; endl;
+            break;
+        case '-':
+            cout &lt;&lt; a - b &lt;&lt; endl;
+            break;
+        case '*':
+            cout &lt;&lt; a * b &lt;&lt; endl;
+            break;
+        case '/':
+            if (b != 0)
+                cout &lt;&lt; a / b &lt;&lt; endl;
+            else
+                cout &lt;&lt; "Error: division by zero" &lt;&lt; endl;
+            break;
+        default:
+            cout &lt;&lt; "Error: unknown operation" &lt;&lt; endl;
+    }
+
+    return 0;
+}
+                    </pre>
+                    <div class="mt-4">
+                        <p class="font-medium">C++ Calculator</p>
+                        <p class="text-sm text-gray-600 mt-1">Basic calculator implementation using stream I/O.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Learning resources -->
+<section class="py-16 px-4 bg-white">
+    <div class="container mx-auto max-w-6xl">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">C++ Learning Resources</h2>
+            <p class="text-center text-gray-600 mb-10">Trusted sources for deep learning of C++ programming language</p>
+            <div>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <a href="https://cppreference.com/" class="block bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition-colors" target="_blank" rel="nofollow noopener">
+						<p class="font-semibold mb-2">CPP Reference</p>
+						<p class="text-gray-600">Comprehensive documentation of the C++ standard library and language features.</p>
+					  </a>
+					  
+					  <a href="https://isocpp.org/" class="block bg-gray-50 hover:bg-gray-100 p-5 rounded-lg transition-colors" target="_blank" rel="nofollow noopener">
+						<p class="font-semibold mb-2">ISO C++</p>
+						<p class="text-gray-600">Official website of the C++ standardization committee with guides, news and best practices.</p>
+					  </a>
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Call to action -->
+    <section class="gradient-bg py-16 px-4 text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Start Coding in C++ Right Now</h2>
+            <p class="text-xl text-gray-200 mb-8">Just launch the compiler and run your code online</p>
+            <a href="#compiler" class="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">Open C++ Compiler</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">C Online Compiler</h3>
+                    <p class="text-sm">Free online compiler for C programming language. Write, compile and run code directly in your browser.</p>
+                </div>
+                
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Compilers</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/en/" class="hover:text-blue-400">C</a></li>
+                        <li><a href="/en/cpp/" class="hover:text-blue-400">C++</a></li>
+                        <li><a href="/en/csharp/" class="hover:text-blue-400">C#</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">About Us</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/about/" class="hover:text-blue-400">About Service</a></li>
+                        <li><a href="/contact/" class="hover:text-blue-400">Contact Us</a></li>
+                        <li><a href="/privacy/" class="hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="/terms/" class="hover:text-blue-400">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm">© 2025 c-online-compiler.github.io. All rights reserved.</p>
+                </div>
+                
+                <div>
+                    <div class="flex space-x-4">
+                        <a href="/cpp/" class="text-sm hover:text-blue-400">Русский</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Français</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Deutsch</a>
+                        <a href="#" class="text-sm hover:text-blue-400">Türkçe</a>
+                        <a href="#" class="text-sm hover:text-blue-400">한국어</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('hidden');
+                const icon = button.querySelector('svg');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        document.querySelector('iframe').closest('section').id = 'compiler';
+    </script>
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(101924126, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/101924126" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+<!-- Yandex.RTB R-A-15538507-2 -->
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-15538507-2",
+        "type": "fullscreen",
+        "platform": "desktop"
+    })
+})
+</script>
+</body>
+</html>
