@@ -15,10 +15,10 @@
     
     <link rel="canonical" href="https://c-online-compiler.github.io/en/csharp/">
     <link rel="alternate" hreflang="ru" href="https://c-online-compiler.github.io/csharp/">
-    <link rel="alternate" hreflang="fr" href="#">
-    <link rel="alternate" hreflang="de" href="#">
-    <link rel="alternate" hreflang="tr" href="#">
-    <link rel="alternate" hreflang="kr" href="#">
+    <link rel="alternate" hreflang="fr" href="https://c-online-compiler.github.io/fr/csharp/">
+    <link rel="alternate" hreflang="de" href="https://c-online-compiler.github.io/de/csharp/">
+    <link rel="alternate" hreflang="tr" href="https://c-online-compiler.github.io/tr/csharp/">
+    <link rel="alternate" hreflang="ko" href="https://c-online-compiler.github.io/ko/csharp/">
     <link rel="alternate" hreflang="x-default" href="https://c-online-compiler.github.io/en/csharp/">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
@@ -453,11 +453,57 @@
                 <div class="flex space-x-4">
                     <a href="https://c-online-compiler.github.io/csharp/" class="text-sm hover:text-blue-400">Русский</a>
                     <a href="/fr/csharp/" class="text-sm hover:text-blue-400">Français</a>
-                    <a href="#" class="text-sm hover:text-blue-400">Deutsch</a>
-                    <a href="#" class="text-sm hover:text-blue-400">Türkçe</a>
-                    <a href="#" class="text-sm hover:text-blue-400">한국어</a>
+                    <a href="/de/csharp/" class="text-sm hover:text-blue-400">Deutsch</a>
+                    <a href="/tr/csharp/" class="text-sm hover:text-blue-400">Türkçe</a>
+                    <a href="/ko/csharp/" class="text-sm hover:text-blue-400">한국어</a>
                 </div>
             </div>
         </div>
     </div>
 </footer>
+ <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('hidden');
+                const icon = button.querySelector('svg');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        document.querySelector('iframe').closest('section').id = 'compiler';
+    </script>
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(101924126, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/101924126" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+<!-- Yandex.RTB R-A-15538507-2 -->
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-15538507-2",
+        "type": "fullscreen",
+        "platform": "desktop"
+    })
+})
+</script>
+</body>
+</html>
